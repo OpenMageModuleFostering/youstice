@@ -9,6 +9,8 @@
 .yContainer label {
     float: none;
     font-weight: normal;
+    display: inline;
+    padding: 0.2em 0.5em 0 0;
 }
 
 .yContainer a {
@@ -103,6 +105,10 @@
     height: 0;
     border-bottom: 1px solid #989898;
     border-top: 1px solid #b0b0b0;
+    margin: 0;
+}
+
+.yContainer input[type="radio"] {
     margin: 0;
 }
 
@@ -292,12 +298,12 @@
 }
 
 .yContainer .yConfiguration select, .yContainer .yConfiguration input {
-    padding: 6px 22px;
+    width: auto;
+    padding: 2px;
     border: 1px solid #680568;
     border-radius: 4px;
     text-align: left;
     background: #fff;
-    padding: 2px;
 }
 
 .yContainer .yConfiguration label[for="reportClaimsPageLink"] {
@@ -315,12 +321,12 @@
     float: left;
 }
 
-.yContainer .yConfiguration input {
-    width: 260px;
-}
-
 .yContainer .yConfiguration input#apiKey {
+    padding: 3px 22px 3px 2px;
     margin-right: 12px;
+    vertical-align: baseline;
+    vertical-align: middle;
+    width: 235px;
 }
 
 .yContainer a.roundedAnchor.style2 {

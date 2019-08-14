@@ -37,7 +37,7 @@ class Youstice_Tools {
 			if ($stream_context != null)
 			{
 				$opts = stream_context_get_options($stream_context);
-				$headers = [];
+				$headers = array();
 
 				//add headers from stream context
 				if (isset($opts['http']['header']))

@@ -80,7 +80,7 @@ class Youstice_Local implements Youstice_LocalInterface {
 		if (empty($drivers))
 			throw new InvalidArgumentException('No PDO driver found');
 
-		$connectionStrings = [];
+		$connectionStrings = array();
 
 		foreach ($drivers as $driver) {
 			$db['driver'] = $driver;

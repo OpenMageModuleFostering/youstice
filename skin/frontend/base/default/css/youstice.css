@@ -1,5 +1,5 @@
 form#yReportClaims {
-    width: 250px;
+    width: 20em;
 }
 
 form#yReportClaims label, form#yReportClaims input[type="submit"] {
@@ -180,13 +180,13 @@ form#yReportClaims p {
     font-weight: normal;
     line-height: 1em;
 
-    border: 1px solid #3c193a;
+    border: 1px solid #3c193a !important;
     border-radius: 7px;
     -moz-border-radius: 7px;
     white-space:nowrap;
 }
 
-.yrsButton:hover { text-decoration: none; color: #fff !important; }
+.yrsButton:hover { text-decoration: none; color: #fff !important; border: 1px solid #3c193a !important;}
 
 .yrsButton:active, .yrsButton:link, .yrsButton:visited { color: #fff !important; }
 
@@ -265,13 +265,6 @@ form#yReportClaims p {
     background-repeat: no-repeat;
 }
 
-
-/* TODO partial fix */
-#fancybox-inner {
-    overflow-x: hidden !important;
-}
-
-
 .ordersPageWrap {
     min-width: 890px;
 }
@@ -301,4 +294,3 @@ form#yReportClaims p {
 .ordersPageWrap table tr td:last-child a {
     float: none;
 }
-
