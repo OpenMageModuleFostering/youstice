@@ -3,7 +3,7 @@
  * Represents base class for orders
  *
  * @author    Youstice
- * @copyright (c) 2015, Youstice
+ * @copyright (c) 2014, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -51,7 +51,7 @@ class Youstice_Reports_BaseReport {
 		if (count($this->data) && isset($this->data['status']))
 			return $this->data['status'];
 
-		if(isset($this->data['created_at']) && $this->data['created_at'] + 600 > time())
+		if(isset($this->data['created_at']) && strtotime($this->data['created_at']) + 600 > time())
 			return 'Problem reported';
 
 		return null;
@@ -64,7 +64,7 @@ class Youstice_Reports_BaseReport {
 		if (!$remaining_time || !isset($this->data['updated_at']))
 			return 0;
 
-		$actual_remaining_time = $remaining_time - (time() - $this->data['updated_at']);
+		$actual_remaining_time = $remaining_time - (time() - strtotime($this->data['updated_at']));
 
 		return $actual_remaining_time >= 0 ? $actual_remaining_time : 0;
 	}

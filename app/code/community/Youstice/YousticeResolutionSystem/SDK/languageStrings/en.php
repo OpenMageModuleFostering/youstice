@@ -3,7 +3,7 @@
  * Local English translations
  *
  * @author    Youstice
- * @copyright (c) 2015, Youstice
+ * @copyright (c) 2014, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -31,8 +31,20 @@ return array(
 	"Waiting for retailer's response"			=> "Waiting for retailer's response",
 
 	//admin
+	"Youstice" => "Youstice",
+	"Your online justice"	=> "Your online justice",
+	"We help customers and retailers resolve shopping issues quickly and effectively." => "We help customers and retailers resolve shopping issues quickly and effectively.",
+	"Youstice is a global online application for customers and retailers"	=> "Youstice is a global online application for customers and retailers",
+	"It allows quick and efficient communication between shops and customers"	=> "It allows quick and efficient communication between shops and customers",
+	"Complaints are resolved in just a few clicks."	=> "Complaints are resolved in just a few clicks.",
 	"Yes"	    => "Yes",
 	"No"	    => "No",
+	"Products"	    => "Products",
+	"Services"	    => "Services",
+	"Settings"	    => "Settings",
+	"Api Key"	    => "Api Key",
+	"Use sandbox environment"   => "Use sandbox environment",
+	"This e-shop sells"	    => "This e-shop sells",
 	"Default language"		=> "Default language",
 	"Auto detection"		=> "Auto detection",
 	"Are you sure you want to uninstall?"	=> "Are you sure you want to uninstall?",
@@ -78,24 +90,4 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'It is also possible to report a problem with a specific item within an order.',
 	'Screenshots'				=> 'Screenshots',
 	"SAVE" => "SAVE",
-	'Check Our'	=> 'Check Our',
-	'LIVE DEMO'	=> 'LIVE DEMO',
-	'Youstice: cURL is not installed, please install it.'	=> 'Youstice: cURL is not installed, please install it.',
-	'Youstice: PDO is not installed, please install it.'	=> 'Youstice: PDO is not installed, please install it.',
-	'Youstice: PECL finfo is not installed, please install it.'	=> 'Youstice: PECL finfo is not installed, please install it.',
-	"Remote service unavailable, please try again later"	=> "Remote service unavailable, please try again later",
-	
-	"Invalid email"	=> "Invalid email",
-	"Email or order number not found" => "Email or order number not found",
-	
-	//orders page
-	"Report claims on"	=> "Report claims on",
-	"Your orders (%d)"	=> "Your orders (%d)",
-	"Order date"	=> "Order date",
-	"Total"	=> "Total",
-	"_orderDateFormat"	=>	"j.n.Y G:i:s",
-	"paid"	=> "paid",
-	"unpaid"	=> "unpaid",
-	"delivered"	=> "delivered",
-	"undelivered"	=> "undelivered",
 );

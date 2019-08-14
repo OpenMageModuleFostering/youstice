@@ -43,17 +43,17 @@ jQuery(document).ready(function($) {
 });
 
 function saveSettings() {
-    jQuery(errorMessagesSelector).remove();
-    jQuery.post(checkApiKeyUrl, {form_key: window.FORM_KEY, api_key: jQuery('#apiKey').val(), use_sandbox: jQuery('#useSandbox').val(), default_language: jQuery('#defaultLanguage').val()},
+    jQuery('.messages').remove();
+    jQuery.post(checkApiKeyUrl, {form_key: window.FORM_KEY, api_key: jQuery('#apiKey').val(), use_sandbox: jQuery('#useSandbox').val()},
     function(response) {
-	if(response.result == 'fail') {
-	    showError(requestFailedHtml);
-	}
-	else if(response.result == false) {
-	    showError(invalidApiKeyHtml);
+	if (response.result !== true) {
+	    showError();
+	    jQuery('html, body').animate({
+		scrollTop: jQuery(".yConfiguration").first().offset().top
+	    }, 2000);
 	}
 	else {
-	    window.location.reload();
+	    jQuery('.yContainer').submit();
 	}
     }, 'json');
 }
@@ -68,7 +68,7 @@ function changeBlocksVisibility(haveAccount) {
     }
 }
 
-function showError(errorHtml) {
+function showError() {
     jQuery('.roundedAnchor.save').after(errorHtml);
     jQuery('html, body').animate({
 	scrollTop: jQuery(".yConfiguration").first().offset().top

@@ -9,8 +9,6 @@
 .yContainer label {
     float: none;
     font-weight: normal;
-    display: inline;
-    padding: 0.2em 0.5em 0 0;
 }
 
 .yContainer a {
@@ -30,10 +28,9 @@
 }
 
 .yContainer a.roundedAnchor.centered {
-    box-sizing: content-box;
     display: block;
     margin: 0 auto;
-    max-width: 220px;
+    max-width: 120px;
 }
 
 .yContainer p {
@@ -108,10 +105,6 @@
     margin: 0;
 }
 
-.yContainer input[type="radio"] {
-    margin: 0;
-}
-
 .yContainer .loginInfo {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAlCAYAAAAjt+tHAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkaFAQifHeNOQAAAlNJREFUWMO1mL9rFUEQxz97PI3B+AsMKWJnYWlExEIQbEJaC9OmSRvETps0/gVipYWtgqWVgpWC2tgoMaBYWPmDJE2EaN7d2uzBuMzs7t27DCzcvdudz/f2x8zcg+52CrgD7AJNaL+B28A8B2wXBNRqjw4KfklAvAGvQ3sJHB8SvhrBNQHjSMiDoeDzEUgTEMPb68tDCNhUBJTAG+DTpPCrmTUfJ4S0M3V+EgEvCtd8rDxvxz1PAaqMgJHxeyPGymuv9J2aRMAJ5TefgFdK3xngSF8Bx6I384DrACcIONlXwC+xll3gUsQ28L2vgD/iTZwClKIwZmC/zyZr7ZuA+wzcK9cuxJHedi2K8U1Bk31r4MykweitAveF8JtDhOKFKNCUJqOnQ2bD5R7J6PTQ9cC6IaBWhNwvdVoV9hsBO+FMe7HLGyU2bAFfCk5Ysc0Aez2S0R5wNxEnimwa+JhZc6seaGfqa/DTyY4CSyGElqy5rAG0o/oXuN6lCLEc5eA+ExvWcvBZBeqVSGjBfSYw1eEFTXuTcJRac58ZJ4W8Bw5p8LOZc14XbLjUm0th92K4C8piZ5aTVG5IwWW//+yK0ikFL01GqVlalwI+FKxd12SUG/cZOOzC9DdRiHVGJeSie4wSTYt+TgnfcxUwpwBSQnJVsksI8dHzWxWwqAyUcGc4spJRrkqWQkYV8DNUv33g2vdBbrZavz+Ah/LhDeBdwRnvmozijfk41IlmlpwCVoDXHQqQXDJ6BZwjsTNzX0cL4R+Si2GmRoavfeAJsBHun4V0bto/ydIVRUzvSjcAAAAASUVORK5CYII=);
     background-position: 10px 50%;
@@ -142,18 +135,11 @@
     background-repeat: no-repeat;
     background-size : 38px;
     line-height: 38px;
-    font-size: 1.7em;
     margin: 9px 0 14px;
     color: #7d277d;
     padding-left: 65px;
     font-weight: normal;
     text-transform: uppercase;
-}
-
-.yContainer .yBlock hr {
-    width: calc(100% + 40px);
-    position: relative;
-    left: -20px;
 }
 
 .yContainer .yBlock.yHidden h2 {
@@ -298,12 +284,12 @@
 }
 
 .yContainer .yConfiguration select, .yContainer .yConfiguration input {
-    width: auto;
-    padding: 2px;
+    padding: 6px 22px;
     border: 1px solid #680568;
     border-radius: 4px;
     text-align: left;
     background: #fff;
+    padding: 2px;
 }
 
 .yContainer .yConfiguration label[for="reportClaimsPageLink"] {
@@ -321,12 +307,12 @@
     float: left;
 }
 
+.yContainer .yConfiguration input {
+    width: 260px;
+}
+
 .yContainer .yConfiguration input#apiKey {
-    padding: 3px 22px 3px 2px;
     margin-right: 12px;
-    vertical-align: baseline;
-    vertical-align: middle;
-    width: 235px;
 }
 
 .yContainer a.roundedAnchor.style2 {

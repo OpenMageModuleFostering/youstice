@@ -3,7 +3,7 @@
  * Local Deutsch translations
  *
  * @author    Youstice
- * @copyright (c) 2015, Youstice
+ * @copyright (c) 2014, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -31,10 +31,22 @@ return array(
 	"Waiting for retailer's response"			=> "Warten auf Antwort des Verkäufers",
 
 	//admin
+	"Youstice" => "Youstice",
+	"Your online justice"	=> "Your online justice",
+	"We help customers and retailers resolve shopping issues quickly and effectively." => "We help customers and retailers resolve shopping issues quickly and effectively.",
+	"Youstice is a global online application for customers and retailers"	=> "Youstice is a global online application for customers and retailers",
+	"It allows quick and efficient communication between shops and customers"	=> "It allows quick and efficient communication between shops and customers",
+	"Complaints are resolved in just a few clicks."	=> "Complaints are resolved in just a few clicks.",
 	"Yes"	    => "Ja",
 	"No"	    => "Nein",
-	"Default language"		=> "Standardsprache",
-	"Auto detection"		=> "Autoerkennung",
+	"Products"	    => "Products",
+	"Services"	    => "Services",
+	"Settings"	    => "Settings",
+	"Api Key"	    => "Api Key",
+	"Use sandbox environment"   => "Use sandbox environment",
+	"This e-shop sells"	    => "This e-shop sells",
+	"Default language"		=> "Default language",
+	"Auto detection"		=> "Auto detection",
 	"Are you sure you want to uninstall?"	=> "Sind Sie sicher dass Sie deinstallieren möchten?",
 	"Settings were saved successfully."	=> "Einstellungen wurden erfolgreich gespeichert.",
 	"Invalid API KEY"		=> "Ungültiges API-Schlüssel",
@@ -78,23 +90,4 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Es ist ebenso möglich, ein spezielles Problem innerhalb einer Bestellung zu melden.',
 	'Screenshots'				=> 'Screenshots',
 	"SAVE" => "SPEICHERN",
-	'Check Our'	=> 'Checken Sie unsere',
-	'LIVE DEMO'	=> 'LIVEDEMO',
-	'Youstice: cURL is not installed, please install it.'	=> 'Youstice: cURL ist nicht installiert, bitte installieren Sie es.',
-	'Youstice: PDO is not installed, please install it.'	=> 'Youstice: PDO ist nicht installiert, bitte installieren Sie es.',
-	'Youstice: PECL finfo is not installed, please install it.'	=> 'Youstice: PECL finfo ist nicht installiert, bitte installieren Sie es',
-	"Remote service unavailable, please try again later"	=> "Fernservice nicht verfügbar, bitte versuchen Sie es später erneut",	
-	"Invalid email"	=> "Ungültige Email",
-	"Email or order number not found" => "Email oder Bestellungsnummer nicht gefunden",
-	
-	//orders page
-	"Report claims on"	=> "Beschwerde einreichen gegen",
-	"Your orders (%d)"	=> "Ihre Bestellungen",
-	"Order date"	=> "Bestelldatum",
-	"Total"	=> "Gesamt",
-	"_orderDateFormat"	=>	"j.n.Y G:i:s",
-	"paid"	=> "bezahlt",
-	"unpaid"	=> "unbezahlt",
-	"delivered"	=> "geliefert",
-	"undelivered"	=> "nicht zugestellt",
 );

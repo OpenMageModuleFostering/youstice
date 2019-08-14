@@ -9,30 +9,22 @@ function removeAjaxSpinner(where) {
 
 jQuery(document).ready(function($) {
 
-    if($('#my-orders-table tr:gt(0)').length) {
-	//button to start showing buttons
-	$('h1').after('<div id="y-main" \>');
-	showAjaxSpinner('#y-main');
-	$.get(BASE_URL + 'index/getShowButtonsHtml', function(data) {
-	    removeAjaxSpinner('#y-main');
-	    $('#y-main').append(data);
+    //button to start showing buttons
+    $('h1').after('<div id="y-main" \>');
+    showAjaxSpinner('#y-main');
+    $.get(BASE_URL + 'index/getShowButtonsHtml', function(data) {
+	removeAjaxSpinner('#y-main');
+	$('#y-main').append(data);
 
-	    if ($(data).data('has-reports'))
-		showButtons();
-	});
-
-	//start showing buttons
-	$(document).on('click', 'a.yrsShowButtons', function(e) {
-	    e.preventDefault();
+	if ($(data).data('has-reports'))
 	    showButtons();
-	});
-    }
-    //can't show buttons
-    else {
-	if(document.URL.indexOf('ordersPage') !== -1) {
-	    showOrdersPage();
-	}
-    }
+    });
+
+    //start showing buttons
+    $(document).on('click', 'a.yrsShowButtons', function(e) {
+        e.preventDefault();
+        showButtons();
+    });
 
     function showButtons() {
         $('a.yrsShowButtons').remove();
@@ -81,33 +73,6 @@ jQuery(document).ready(function($) {
 	    });
 	}, 'json');
     }
-	
-    function showOrdersPage() {
-	$.get(BASE_URL + 'index/getOrdersPage', function(data) {
-	    $.fancybox({
-		autoDimensions: false,
-		width: '70%',
-		height: '90%',
-		content: data.ordersPage,
-		closeBtn: false,
-		showCloseButton: false
-	    });
-	}, 'json');
-
-    }
-
-    //load orderDetail
-    $(document).on('click', '.yrsButton-plus, .yrsOrderDetailButton, .yrsButton-order-detail', function(e) {
-	$this = $(this);
-	$.fancybox({
-	    autoDimension: true,
-	    href: $this.attr('href'),
-	    type: 'ajax',
-	    closeBtn: false,
-	    showCloseButton: false
-	});
-	return false;
-    });
 
     //reload orderDetail
     $(document).on('click', '.yrsButton:not(.yrsButton-order-detail):not(.yrsOrderDetailButton)'

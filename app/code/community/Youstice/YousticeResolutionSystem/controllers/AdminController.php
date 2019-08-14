@@ -14,21 +14,16 @@ class Youstice_YousticeResolutionSystem_AdminController extends Mage_Adminhtml_C
 		$this->renderLayout();
 	}
 	
-	//ajax
-	public function checkApiKeyAction() {
-		$params = $this->getRequest()->getPost();
-		
-		$result = $this->checkApiKey($params['api_key'], $params['use_sandbox']);
-		
-		if($result == true)
-			$this->saveForm();
-
-		exit(json_encode(array('result' => $result)));
-	}
-	
-	protected function saveForm() {
+	public function saveAction() {
 		$params = $this->getRequest()->getPost();		
 		$api = Mage::getSingleton('Youstice_YousticeResolutionSystem_Helper_ApiSingleton')->get();
+		
+		$validApiKey = $this->checkApiKey($params['api_key'], $params['use_sandbox']);
+		
+		if(!$validApiKey) {
+			Mage::getSingleton('core/session')->addError($api->t('Invalid API KEY'));
+			$this->_redirect('youstice/admin');
+		}
 		
 		Mage::getModel('core/config')->saveConfig('youstice/api_key', $params['api_key']);
 		Mage::getModel('core/config')->saveConfig('youstice/use_sandbox', $params['use_sandbox']);
@@ -37,12 +32,22 @@ class Youstice_YousticeResolutionSystem_AdminController extends Mage_Adminhtml_C
 		
 		Mage::getConfig()->reinit();
 		Mage::app()->reinitStores();
+
 		
 		Mage::getSingleton('core/session')->addSuccess($api->t('Settings were saved successfully.'));
 		$this->_redirect('youstice/admin');
 	}
 	
-	protected function checkApiKey($apiKey, $useSandbox) {
+	//ajax
+	public function checkApiKeyAction() {
+		$params = $this->getRequest()->getPost();
+		
+		$result = $this->checkApiKey($params['api_key'], $params['use_sandbox']);
+
+		exit(json_encode(array('result' => $result)));
+	}
+	
+	private function checkApiKey($apiKey, $useSandbox) {
 		if (!trim($apiKey))
 			return false;
 		
@@ -57,7 +62,7 @@ class Youstice_YousticeResolutionSystem_AdminController extends Mage_Adminhtml_C
 			$result = $api->checkApiKey();
 		}
 		catch(Exception $e) {
-			$result = 'fail';
+			$result = false;
 		}
 
 		return $result;

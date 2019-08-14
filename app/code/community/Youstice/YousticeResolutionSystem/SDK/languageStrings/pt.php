@@ -3,7 +3,7 @@
  * Local Portugese translations
  *
  * @author    Youstice
- * @copyright (c) 2015, Youstice
+ * @copyright (c) 2014, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -31,10 +31,22 @@ return array(
 	"Waiting for retailer's response"			=> "Aguardando a resposta do varejista",
 
 	//admin
+	"Youstice" => "Youstice",
+	"Your online justice"	=> "Your online justice",
+	"We help customers and retailers resolve shopping issues quickly and effectively." => "We help customers and retailers resolve shopping issues quickly and effectively.",
+	"Youstice is a global online application for customers and retailers"	=> "Youstice is a global online application for customers and retailers",
+	"It allows quick and efficient communication between shops and customers"	=> "It allows quick and efficient communication between shops and customers",
+	"Complaints are resolved in just a few clicks."	=> "Complaints are resolved in just a few clicks.",
 	"Yes"	    => "Sim",
 	"No"	    => "Não",
-	"Default language"		=> "Idioma padrão",
-	"Auto detection"		=> "Detecção automática",
+	"Products"	    => "Products",
+	"Services"	    => "Services",
+	"Settings"	    => "Settings",
+	"Api Key"	    => "Api Key",
+	"Use sandbox environment"   => "Use sandbox environment",
+	"This e-shop sells"	    => "This e-shop sells",
+	"Default language"		=> "Default language",
+	"Auto detection"		=> "Auto detection",
 	"Are you sure you want to uninstall?"	=> "Tem certeza de que deseja desinstalar?",
 	"Settings were saved successfully."	=> "As configurações foram salvas com sucesso.",
 	"Invalid API KEY"		=> "API KEY Inválida",
@@ -67,8 +79,8 @@ return array(
 	'Your API key can be found in Youstice application. Log in to Youstice' => 'Sua chave de API pode ser encontrada no aplicativo Youstice. Entre na Youstice',
 	'or' => 'ou',
 	'go to menu SHOPS, click on your shop and see API key on the bottom of the page.' => 'vá ao menu de lojas, clique na sua loja e veja a chave de API na parte inferior da página.',
-	'Need some help?'				=> 'Precisa de ajuda?',
-	'Our support team is here for you'	=> 'O nosso suporte está aqui para te ajudar',
+	'Need some help?'				=> 'Need some help?',
+	'Our support team is here for you'	=> 'Our support team is here for you',
 	'Filing a claim without login'				=> 'INICIANDO UMA RECLAMAÇÃO SEM LOGIN',
 	'Optionally, copy & paste the code below to any place on your website if you want to allow your customers to file claims without logging in based on the customer’s email address and order reference.' => 'Há também a opção de copiar e colar o código abaixo em qualquer lugar no seu site, Se você quiser permitir que os seus clientes iniciem uma reclamação sem fazer o login, utilizando apenas o email e o número da encomenda.',
 	'Feel free to use this link on social networks. Post it proactively on Facebook, Google+, Twitter, etc. It will help to redirect negative opinions and potential complaints into Youstice and keep your wall clean.' => 'Feel free to use this link on social networks. Post it proactively on Facebook, Google+, Twitter, etc. It will help to redirect negative opinions and potential complaints into Youstice and keep your wall clean.',
@@ -78,23 +90,4 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Também é possível relatar problema em um item específico da encomenda.',
 	'Screenshots'				=> 'IMAGENS',
 	"SAVE" => "SALVAR",
-	'Check Our'	=> 'Veja a nossa',
-	'LIVE DEMO'	=> 'LIVE DEMO',
-	'Youstice: cURL is not installed, please install it.'	=> 'Youstice: cURL não foi instalada. Instale, por favor.',
-	'Youstice: PDO is not installed, please install it.'	=> 'Youstice: PDO não foi instalado. Instale, por favor.',
-	'Youstice: PECL finfo is not installed, please install it.'	=> 'Youstice: PECL finfo não foi instalado. Instale, por favor.',
-	"Remote service unavailable, please try again later"	=> "O serviço remoto não está disponível, por favor, tente novamente mais tarde",	
-	"Invalid email"	=> "O endereço de email é inválido",
-	"Email or order number not found" => "O endereço de email ou o número do pedido não foi encontrado",
-	
-	//orders page
-	"Report claims on"	=> "Apresente uma reclamação",
-	"Your orders (%d)"	=> "Os seus pedidos (%d)",
-	"Order date"	=> "Data do pedido",
-	"Total"	=> "Total",
-	"_orderDateFormat"	=>	"j.n.Y G:i:s",
-	"paid"	=> "pago",
-	"unpaid"	=> "não pago",
-	"delivered"	=> "entregue",
-	"undelivered"	=> "não entregue",
 );

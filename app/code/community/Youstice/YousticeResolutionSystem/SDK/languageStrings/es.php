@@ -3,7 +3,7 @@
  * Local Spain translations
  *
  * @author    Youstice
- * @copyright (c) 2015, Youstice
+ * @copyright (c) 2014, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -31,10 +31,22 @@ return array(
 	"Waiting for retailer's response"			=> "Esperando la respuesta del comerciante",
 
 	//admin
+	"Youstice " => "Youstice",
+	"Your online justice"	=> "Tu justicia en línea",
+	"We help customers and retailers resolve shopping issues quickly and effectively." => "Facilitamos la resolución rápida y efectiva de conflictos entre clientes y comerciantes.",
+	"Youstice is a global online application for customers and retailers"	=> "Youstice es una plataforma global en línea para clientes y comerciantes",
+	"It allows quick and efficient communication between shops and customers"	=> "Facilita la comunicación rápida y eficaz entre clientes y comerciantes",
+	"Complaints are resolved in just a few clicks."	=> "Las reclamaciones se resuelven con tan solo unos clics.",
 	"Yes"	    => "Sí",
 	"No"	    => "No",
-	"Default language"		=> "El idioma predeterminado",
-	"Auto detection"		=> "Detección automática",
+	"Products"	    => "Productos",
+	"Services"	    => "Servicios",
+	"Settings"	    => "Configuraciones",
+	"Api Key"	    => "Llave Api",
+	"Use sandbox environment"   => "Utiliza el entorno de prueba sandbox",
+	"This e-shop sells"	    => "Este comercio electrónico vende",
+	"Default language"		=> "Default language",
+	"Auto detection"		=> "Auto detection",
 	"Are you sure you want to uninstall?"	=> "¿Estás seguro que quieres desinstalar?",
 	"Settings were saved successfully."	=> "Configuración se ha guardado correctamente",
 	"Invalid API KEY"		=> "Clave de API no válida",
@@ -78,23 +90,4 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Es posible también notificar un problema sobre un artículo concreto de un pedido.',
 	'Screenshots'				=> 'CAPTURAS DE PANTALLA',
 	"SAVE" => "GUARDAR",
-	'Check Our'	=> 'Verifique nuestro',
-	'LIVE DEMO'	=> 'LIVE DEMO',
-	'Youstice: cURL is not installed, please install it.'	=> 'Youstice: cURL no está instalado, por favor, instálelo.',
-	'Youstice: PDO is not installed, please install it.'	=> 'Youstice: PDO no está instalado, por favor, instálelo.',
-	'Youstice: PECL finfo is not installed, please install it.'	=> 'Youstice: PECL finfo no está instalado, por favor, instálelo.',
-	"Remote service unavailable, please try again later"	=> "Servicio remoto no disponible, por favor, vuelva a intentarlo más tarde",	
-	"Invalid email"	=> "La dirección de correo electrónico no es válida",
-	"Email or order number not found" => "Correo electrónico o número de pedido no fue encontrado",
-	
-	//orders page
-	"Report claims on"	=> "Presenta una reclamación en",
-	"Your orders (%d)"	=> "Sus órdenes (%d)",
-	"Order date"	=> "La fecha de la orden",
-	"Total"	=> "Total",
-	"_orderDateFormat"	=>	"j.n.Y G:i:s",
-	"paid"	=> "Pagado",
-	"unpaid"	=> "No pagado",
-	"delivered"	=> "Entregado",
-	"undelivered"	=> "No entregado",
 );
