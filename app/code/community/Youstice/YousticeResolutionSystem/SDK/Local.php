@@ -13,11 +13,11 @@
  */
 class Youstice_Local implements Youstice_LocalInterface {
 
-	private $connection = null;
-	private $table_prefix;
-	private $db_driver;
-	private $session;
-	private $cached = array();
+	protected $connection = null;
+	protected $table_prefix;
+	protected $db_driver;
+	protected $session;
+	protected $cached = array();
 
 	/**
 	 * Initialize connection
@@ -50,6 +50,13 @@ class Youstice_Local implements Youstice_LocalInterface {
 
 		if ($db['driver'] == 'mysqli')
 			$db['driver'] = 'mysql';
+		
+		//host can be socket, check first param of mysql_connect
+		if(isset($db['host']) && $db['host'][0] == ':')
+		{
+			$db['socket'] = $db['host'];
+			$db['host'] = null;
+		}
 
 		$connection_string = $db['driver'].':dbname='.$db['name'];
 		
@@ -73,7 +80,7 @@ class Youstice_Local implements Youstice_LocalInterface {
 	 * @param Youstice_Providers_SessionProviderInterface $session
 	 * @return Youstice_Api
 	 */
-	public function setSession(Youstice_Providers_SessionProviderInterface &$session)
+	public function setSession(Youstice_Providers_SessionProviderInterface $session)
 	{
 		$this->session = $session;
 
@@ -164,7 +171,7 @@ class Youstice_Local implements Youstice_LocalInterface {
 			
 			$query_res = $this->executeQueryFetch($query_last, array($searchValue));
 		}
-		
+
 		return $this->cached[$searchValue] = $query_res;
 	}
 
@@ -313,3 +320,4 @@ class Youstice_Local implements Youstice_LocalInterface {
 	}
 
 }
+

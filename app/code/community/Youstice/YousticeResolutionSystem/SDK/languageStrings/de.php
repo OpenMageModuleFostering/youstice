@@ -90,4 +90,13 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Es ist ebenso möglich, ein spezielles Problem innerhalb einer Bestellung zu melden.',
 	'Screenshots'				=> 'Screenshots',
 	"SAVE" => "SPEICHERN",
+	
+	//orders page
+	"Order date"	=> "Order date",
+	"Total"	=> "Total",
+	"_orderDateFormat"	=>	"j.n.Y G:i:s",
+	"paid"	=> "paid",
+	"unpaid"	=> "unpaid",
+	"delivered"	=> "delivered",
+	"undelivered"	=> "undelivered",
 );

@@ -170,8 +170,10 @@ $reportClaimsLink = $this->getUrl('', array('_absolute' => true, '_secure' => tr
 	var sandUrl = 'https://app-sand.youstice.com/blox-odr13/generix/odr/<?= $defaultLanguage ? : 'en' ?>/app2/_shopConfiguration_?utm_source=eshop&utm_medium=cpc&utm_content=magento_signup&utm_campaign=plugins';
 	var liveUrl = 'https://app.youstice.com/blox-odr/generix/odr/<?= $defaultLanguage ? : 'en' ?>/app2/_shopConfiguration_?utm_source=eshop&utm_medium=cpc&utm_content=magento_signup&utm_campaign=plugins';
 	var checkApiKeyUrl = '<?php echo Mage::getModel('adminhtml/url')->getUrl('youstice/admin/checkApiKey') ?>?isAjax=true';
-	var languageSelectedDefault = '<?= $defaultLanguage ?>'
-	var errorHtml = '<ul class="messages"><li class="error-msg"><?= $api->t('Invalid API KEY') ?></li></ul>';
+	var languageSelectedDefault = '<?= $defaultLanguage ?>';
+	var errorMessagesSelector = '.messages';
+	var invalidApiKeyHtml = '<ul class="messages"><li class="error-msg"><?= $api->t('Invalid API KEY') ?></li></ul>';
+	var requestFailedHtml = '<ul class="messages"><li class="error-msg"><?= $api->t('Remote service unavailable, please try again later') ?></li></ul>';
 
 <?php if (strlen(trim($apiKey))): ?>
 		jQuery(document).ready(function($) {

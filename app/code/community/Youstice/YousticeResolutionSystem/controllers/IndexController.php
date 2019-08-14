@@ -19,8 +19,14 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 	}
 
 	public function getReportClaimsPageAction() {
-		if ($this->api->getCustomerId() !== null)
-			$this->_redirectUrl(Mage::getUrl('sales/order/history'));
+		if ($this->api->getCustomerId() !== null) {
+			if ($this->getRequest()->has('ordersPage'))
+				$redirectUrl = Mage::getUrl('sales/order/history?ordersPage');
+			else
+				$redirectUrl = Mage::getUrl('sales/order/history');
+
+			$this->_redirectUrl($redirectUrl);
+		}
 
 		$this->loadLayout();
 		
@@ -88,11 +94,19 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 	}
 
 	public function getLogoWidgetAction() {
-		echo $this->api->get()->getLogoWidgetHtml(Mage::getUrl('youstice/index/getReportClaimsPage'));
+		echo $this->api->get()->getLogoWidgetHtml(Mage::getUrl('youstice/index/getReportClaimsPage'), true);
 	}
 
 	public function getWebReportButtonAction() {
 		echo $this->api->get()->getWebReportButtonHtml(Mage::getUrl('youstice/index/createWebReport/'));
+	}
+
+	public function getOrdersPageAction() {
+		$shopOrders = $this->createShopOrders();
+
+		$html = $this->api->get()->getOrdersPageWidgetHtml(Mage::getUrl('youstice/index/createWebReport/'), Mage::app()->getStore()->getName(), $shopOrders);
+
+		echo json_encode(array('ordersPage' => $html));
 	}
 
 	public function getOrdersButtonsAction() {
@@ -106,7 +120,7 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 
 			$shopOrder = $this->createShopOrder($orderId);
 
-			$orderDetailUrl = Mage::getUrl('youstice/index/getOrderDetail', array('_query' => 'order_id=' . $orderId));
+			$orderDetailUrl = $this->createOrderDetailHref($orderId);
 
 			$response[$orderId] = $this->api->get()->getOrderDetailButtonHtml($orderDetailUrl, $shopOrder);
 		}
@@ -225,6 +239,25 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 		echo('Product not found');
 	}
 
+	protected function createShopOrders()
+	{		
+		$orders = Mage::getModel('sales/order')
+				->loadByAttribute('customer_id', $this->customer_id)
+				->getCollection()
+				->setOrder('created_at', 'DESC');
+
+		if (empty($orders))
+			return array();
+
+		$shopOrders = array();
+
+		foreach ($orders as $order) {
+			$shopOrders[] = $this->createShopOrder($order);
+		}
+
+		return $shopOrders;
+	}
+
 	protected function createShopOrder($order) {
 		if (!$order instanceof Mage_Sales_Model_Order)
 			$order = Mage::getModel('sales/order')->load($order);
@@ -243,10 +276,18 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 				->setCurrency($order['order_currency_code'])
 				->setPrice((float) $order['grand_total'])
 				->setId($order->getId())
-				->setDeliveryDate($deliveryDate)
 				->setOrderDate($order['created_at'])
+				->setDeliveryDate($deliveryDate)
 				->setOtherInfo(json_encode($order->getData()))
-				->setHref($this->createOrderReportHref($order->getId()));
+				->setHref($this->createOrderReportHref($order->getId()))
+				->setOrderDetailHref($this->createOrderDetailHref($order->getId()));
+
+		//how much left to pay
+		if($order->getBaseTotalDue() == 0)
+			$shopOrder->setPaymentState(Youstice_ShopOrder::PAYED);
+
+		if($order->hasShipments())
+			$shopOrder->setDeliveryState(Youstice_ShopOrder::DELIVERED);
 
 		foreach ($products as $product) {
 			$shopProduct = $this->createShopProduct($product, $order->getId());
@@ -305,6 +346,10 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 		$href = Mage::getUrl('youstice/index/createProductReport', array('_query' => $params));
 
 		return $href;
+	}
+
+	protected function createOrderDetailHref($orderId) {
+		return Mage::getUrl('youstice/index/getOrderDetail', array('_query' => 'order_id=' . $orderId));
 	}
 
 }

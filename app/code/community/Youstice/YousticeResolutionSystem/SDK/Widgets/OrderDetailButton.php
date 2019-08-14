@@ -127,3 +127,4 @@ class Youstice_Widgets_OrderDetailButton {
 	}
 
 }
+

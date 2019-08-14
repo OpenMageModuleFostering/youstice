@@ -145,3 +145,4 @@ class Youstice_Remote extends Youstice_Request {
 	}
 
 }
+

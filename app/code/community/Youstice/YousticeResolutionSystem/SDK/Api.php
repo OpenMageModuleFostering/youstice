@@ -148,7 +148,7 @@ class Youstice_Api {
 	 * @return YousticeApi
 	 */
 	public function runWithoutUpdates()
-	{
+	{		
 		$this->checkShopSells();
 
 		if ($this->session === null)
@@ -201,17 +201,40 @@ class Youstice_Api {
 		return $widget->toString();
 	}
 
+	public function getOrdersPageWidgetHtml($webReportHref, $shopName, array $shopOrders)
+	{
+		if (!trim($this->api_key))
+			return '';
+
+		if(empty($shopOrders))
+			return '';
+
+		$widget = new Youstice_Widgets_OrdersPage($this->language, $webReportHref, $shopName, $shopOrders, $this);
+
+		return $widget->toString();
+	}
+
 	/**
 	 * Returns html string of logo widget
 	 * @param string $claim_url url to report claims form
 	 * @return string html
 	 */
-	public function getLogoWidgetHtml($claim_url = '')
+	public function getLogoWidgetHtml($claim_url = '', $isOnOrderHistoryPage = false)
 	{
 		if (!trim($this->api_key))
 			return '';
 
-		return $this->remote->getLogoWidgetData($this->local->getChangedReportStatusesCount(), $claim_url, $this->user_id !== null);
+		if($isOnOrderHistoryPage)
+			$claim_url .= (parse_url($claim_url, PHP_URL_QUERY) ? '&' : '?') . 'ordersPage';
+
+		try {
+			$html = $this->remote->getLogoWidgetData($this->local->getChangedReportStatusesCount(), $claim_url, $this->user_id !== null);
+		}
+		catch(Exception $e) {
+			return '';
+		}
+
+		return $html;
 	}
 
 	/**
@@ -630,6 +653,15 @@ class Youstice_Api {
 	}
 
 	/**
+	 *
+	 * @return Youstice_LocalInterface $local
+	 */
+	public function getLocal()
+	{
+		return $this->local;
+	}
+
+	/**
 	 * Set eshop language
 	 * @param string ISO 639-1 char code "en|sk|cz|es"
 	 * @return Youstice_Api
@@ -736,3 +768,4 @@ class Youstice_InvalidApiKeyException extends Exception {
 class Youstice_FailedRemoteConnectionException extends Exception {
 
 }
+

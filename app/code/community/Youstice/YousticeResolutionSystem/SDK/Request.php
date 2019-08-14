@@ -55,8 +55,11 @@ class Youstice_Request {
 		$url = $this->generateUrl($url);
 		$this->postStream($url, $data);
 
-		if ($this->response === false || $this->response === null)
+		if ($this->response === false || $this->response === null || strpos($this->response, "HTTP Status 500") !== false) {
+			$this->logError($url, "POST", $data, $this->response);
+			
 			throw new Youstice_FailedRemoteConnectionException('Post Request failed: '.$url);
+		}
 
 		if (strpos($this->response, 'Invalid api key') !== false)
 			throw new Youstice_InvalidApiKeyException;
@@ -69,8 +72,12 @@ class Youstice_Request {
 		$url = $this->generateUrl($url);
 		$this->getStream($url);
 
-		if ($this->response === false || $this->response === null)
+		if ($this->response === false || $this->response === null || strpos($this->response, "HTTP Status 500") !== false) {
+			
+			$this->logError($url, "GET", array(), $this->response);
+			
 			throw new Youstice_FailedRemoteConnectionException('get Request failed: '.$url);
+		}
 
 		if (strpos($this->response, 'Invalid api key') !== false)
 			throw new Youstice_InvalidApiKeyException;
@@ -83,7 +90,7 @@ class Youstice_Request {
 		$request = stream_context_create(array(
 			'http' => array(
 				'method' => 'GET',
-				'ignore_errors' => false,
+				'ignore_errors' => true,
 				'timeout' => 10.0,
 				'header' => "Content-Type: application/json\r\n".'Accept-Language: '.$this->lang."\r\n",
 			)
@@ -99,7 +106,7 @@ class Youstice_Request {
 		$request = stream_context_create(array(
 			'http' => array(
 				'method' => 'POST',
-				'ignore_errors' => false,
+				'ignore_errors' => true,
 				'timeout' => 10.0,
 				'content' => Youstice_Tools::jsonEncode($data),
 				'header' => "Content-Type: application/json\r\n".'Accept-Language: '.$this->lang."\r\n",
@@ -110,5 +117,11 @@ class Youstice_Request {
 
 		$this->response = Youstice_Tools::file_get_contents($url, false, $request);
 	}
+	
+	protected function logError($url, $type, $data, $response)
+	{
+		error_log("Youstice - remote request failed [url]: " . $type . " " . $url . " [request]: " . json_encode($data) . " [response]: " . $response);
+	}
 
 }
+

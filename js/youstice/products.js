@@ -21,6 +21,6 @@ jQuery(document).ready(function($) {
 
 });
 
-function showAjaxSpinner(where) {console.log(where);
+function showAjaxSpinner(where) {
     jQuery(where).append('<div class="y-ajax-spinner"></div>');
 }

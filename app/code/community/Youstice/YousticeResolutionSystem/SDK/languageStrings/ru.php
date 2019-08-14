@@ -90,4 +90,14 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Также возможно сообщить о проблеме, связанной с определённым товаром в рамках отдельных заказов.',
 	'Screenshots'				=> 'СКРИНШОТЫ (Снимки экрана)',
 	"SAVE" => "СОХРАНИТЬ",
+	"Remote service unavailable, please try again later"	=> "Remote service unavailable, please try again later",
+	
+	//orders page
+	"Order date"	=> "Order date",
+	"Total"	=> "Total",
+	"_orderDateFormat"	=>	"j.n.Y G:i:s",
+	"paid"	=> "paid",
+	"unpaid"	=> "unpaid",
+	"delivered"	=> "delivered",
+	"undelivered"	=> "undelivered",
 );

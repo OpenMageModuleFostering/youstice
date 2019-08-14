@@ -33,9 +33,7 @@ return array(
 	//admin
 	"Youstice" => "Youstice",
 	"Your online justice"	=> "Vaša online justícia",
-	"We help customers and retailers resolve shopping issues quickly and effectively." => "Pomáhame spotrebiteľom a predajcom rýchlo a efektívne riešiť problémy spojené s nakupovaním.",
-	"Youstice is a global online application for customers and retailers"	=> "Youstice je globálna online aplikácia pre spotrebiteľov a predajcov",
-	"It allows quick and efficient communication between shops and customers"	=> "Umožňuje rýchlu a efektívnu komunikáciu medzi obchodmi a kupujúcimi.",
+	"We help customers and retailers resolve shopping issues quickly and effectively." => "Pomáhame spotrebiteľom a predajcom rýchlo a efektívne riešiť problémy spojené s nakupovaním.",	"Youstice is a global online application for customers and retailers"	=> "Youstice je globálna online aplikácia pre spotrebiteľov a predajcov",	"It allows quick and efficient communication between shops and customers"	=> "Umožňuje rýchlu a efektívnu komunikáciu medzi obchodmi a kupujúcimi.",
 	"Complaints are resolved in just a few clicks."	=> "Sťažnosti je možné vyriešiť niekoľkými kliknutiami myšou.",
 	"Yes"	    => "Áno",
 	"No"	    => "Nie",
@@ -90,4 +88,14 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Je tiež možné nahlásiť problém ohľadom konkrétnej položky, ktorá je súčasťou objednávky.',
 	'Screenshots'				=> 'Screenshoty',
 	"SAVE" => "ULOŽIŤ",
+	"Remote service unavailable, please try again later"	=> "Remote service unavailable, please try again later",
+	
+	//orders page
+	"Order date"	=> "Order date",
+	"Total"	=> "Total",
+	"_orderDateFormat"	=>	"j.n.Y G:i:s",
+	"paid"	=> "paid",
+	"unpaid"	=> "unpaid",
+	"delivered"	=> "delivered",
+	"undelivered"	=> "undelivered",
 );
