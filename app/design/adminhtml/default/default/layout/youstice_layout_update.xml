@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    
+    <youstice_admin_admin_index>
+        <reference name="content">
+            <block type="core/template" name="youstice" template="youstice/adminForm.phtml"  />
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <name>yousticeAdmin.css</name>
+            </action>
+            <action method="addJs">
+                <script>youstice/jquery.min.js</script>
+            </action>
+            <action method="addJs">
+                <name>youstice/jquery.fancybox.js</name>
+            </action>
+            <action method="addJs">
+                <script>youstice/admin.js</script>
+            </action>
+        </reference>
+    </youstice_admin_admin_index>
+</layout>

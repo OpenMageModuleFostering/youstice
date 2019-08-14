@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <modules>
+        <Youstice_YousticeResolutionSystem>
+            <version>1.4.5</version>
+        </Youstice_YousticeResolutionSystem>
+    </modules>
+
+    <global>
+        <resources>
+            <youstice_setup>
+                <setup>
+                    <module>Youstice_YousticeResolutionSystem</module>
+                </setup>
+            </youstice_setup>
+        </resources>
+    </global>
+
+    <frontend>
+        <routers>
+            <youstice_yousticeresolutionsystem>
+                <use>standard</use>
+                <args>
+                    <module>Youstice_YousticeResolutionSystem</module>
+                    <frontName>youstice</frontName>
+                </args>
+            </youstice_yousticeresolutionsystem>
+        </routers>
+        <layout>
+            <updates>
+                <youstice_yousticeresolutionsystem>
+                    <file>youstice_layout_update.xml</file>
+                </youstice_yousticeresolutionsystem>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <routers>
+            <youstice_admin>
+                <use>admin</use>
+                <args>
+                    <module>Youstice_YousticeResolutionSystem</module>
+                    <frontName>youstice</frontName>
+                </args>
+            </youstice_admin>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <youstice_admin>
+                    <file>youstice_layout_update.xml</file>
+                </youstice_admin>
+            </updates>
+        </layout>
+
+    </adminhtml>
+
+</config>

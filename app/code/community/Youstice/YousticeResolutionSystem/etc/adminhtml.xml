@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <youstice_yousticeresolutionsystem>
+            <title>Youstice</title>
+            <sort_order>75</sort_order>
+            <action>youstice/admin/index</action>
+            <depends>
+                <module>Youstice_YousticeResolutionSystem</module>
+            </depends>
+        </youstice_yousticeresolutionsystem>
+    </menu>
+</config>

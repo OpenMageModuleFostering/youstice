@@ -1,0 +1,38 @@
+form#yReportClaims {
+    display: block;
+}
+
+[id*="yousticeOrderButton-"] {
+    min-width: 230px;
+    min-height: 44px
+}
+
+[id*="yousticeOrderButton-"]:empty {
+    min-width: 0;
+    min-height: 0;
+}
+
+.order-items h3, [id*="yousticeProductButton-"] {
+    display: table-cell;
+}
+
+[id*="yousticeProductButton-"] {
+    padding-left: 25px;
+}
+
+#y-main {
+    padding-bottom: 20px;
+}
+
+#y-main {
+    margin-top: 16px;
+}
+
+.y-ajax-spinner {
+    min-height: 30px;
+}
+
+.yrsButton {
+    text-transform: none !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+}

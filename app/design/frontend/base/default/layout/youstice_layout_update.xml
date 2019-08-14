@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">            
+            <block name="youstice" type="core/template" template="youstice/baseUrl.phtml" />
+            <action method="addJs">
+                <script>youstice/jquery.min.js</script>
+            </action>
+            <action method="addJs">
+                <name>youstice/jquery.fancybox.js</name>
+		<params><![CDATA[name="js001_first"]]></params>
+            </action>
+            <action method="addJs">
+                <name>youstice/logoWidget.js</name>
+            </action>
+            <action method="addCss">
+                <script>css/fancybox/jquery.fancybox.css</script>
+            </action>
+            <action method="addCss">
+                <script>css/youstice.css</script>
+            </action>
+            <action method="addCss">
+                <script>css/youstice_magento.css</script>
+            </action>
+        </reference>
+    </default>
+ 
+    <customer_account_index>
+        <reference name="head">
+            <action method="addJs">
+                <name>youstice/orders.js</name>
+		<params><![CDATA[name="js001_first"]]></params>
+            </action>
+        </reference>
+    </customer_account_index>
+    <sales_order_history>
+        <reference name="head">
+            <action method="addJs">
+                <name>youstice/orders.js</name>
+		<params><![CDATA[name="js001_first"]]></params>
+            </action>
+        </reference>
+    </sales_order_history>
+    <sales_order_view>
+        <reference name="head">
+            <action method="addJs">
+                <name>youstice/products.js</name>
+		<params><![CDATA[name="js001_first"]]></params>
+            </action>
+        </reference>
+    </sales_order_view>
+</layout>

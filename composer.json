@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Youstice",
+    "type": "magento-module",
+    "license": "Apache-License,-Version-2.0",
+    "homepage": "",
+    "description": "Add buttons for reporting claims",
+    "authors": [
+    {
+        "name": "Youstice",
+        "email": "info@youstice.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
