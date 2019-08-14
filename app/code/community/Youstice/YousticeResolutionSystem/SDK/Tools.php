@@ -37,15 +37,33 @@ class Youstice_Tools {
 			if ($stream_context != null)
 			{
 				$opts = stream_context_get_options($stream_context);
+				$headers = [];
+
+				//add headers from stream context
+				if (isset($opts['http']['header']))
+				{
+					$_headers = explode("\r\n", $opts['http']['header']);
+					//remove last or empty
+					$_headers = array_filter($_headers, 'strlen');
+
+					array_merge($headers, $_headers);
+				}
+
+				//set POST fields
 				if (isset($opts['http']['method']) && Youstice_Tools::strtolower($opts['http']['method']) == 'post')
 				{
 					curl_setopt($curl, CURLOPT_POST, true);
 					if (isset($opts['http']['content']))
 					{
-						parse_str($opts['http']['content'], $datas);
-						curl_setopt($curl, CURLOPT_POSTFIELDS, $datas);
+						$jsonData = $opts['http']['content'];
+						curl_setopt($curl, CURLOPT_POSTFIELDS, $jsonData);
+
+						$headers[] = 'Content-Type: application/json';
+						$headers[] = 'Content-Length: ' . strlen($jsonData);
 					}
 				}
+
+				curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 			}
 			$content = curl_exec($curl);
 			curl_close($curl);

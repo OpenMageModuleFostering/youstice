@@ -3,7 +3,7 @@
  * Local Russian translations
  *
  * @author    Youstice
- * @copyright (c) 2014, Youstice
+ * @copyright (c) 2015, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -31,22 +31,10 @@ return array(
 	"Waiting for retailer's response"			=> "В ожидании ответа розничного торговца",
 
 	//admin
-	"Youstice" => "Юстис",
-	"Your online justice"	=> "Your online justice",
-	"We help customers and retailers resolve shopping issues quickly and effectively." => "We help customers and retailers resolve shopping issues quickly and effectively.",
-	"Youstice is a global online application for customers and retailers"	=> "Youstice is a global online application for customers and retailers",
-	"It allows quick and efficient communication between shops and customers"	=> "It allows quick and efficient communication between shops and customers",
-	"Complaints are resolved in just a few clicks."	=> "Complaints are resolved in just a few clicks.",
 	"Yes"	    => "Да",
 	"No"	    => "Нет",
-	"Products"	    => "Products",
-	"Services"	    => "Services",
-	"Settings"	    => "Settings",
-	"Api Key"	    => "Api Key",
-	"Use sandbox environment"   => "Use sandbox environment",
-	"This e-shop sells"	    => "This e-shop sells",
-	"Default language"		=> "Default language",
-	"Auto detection"		=> "Auto detection",
+	"Default language"		=> "Язык по умолчанию",
+	"Auto detection"		=> "Автоматическая детекция",
 	"Are you sure you want to uninstall?"	=> "Вы уверены, что хотите удалить?",
 	"Settings were saved successfully."	=> "Настройки успешно сохранены.",
 	"Invalid API KEY"		=> "Недействительный API-ключ",
@@ -90,14 +78,23 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Также возможно сообщить о проблеме, связанной с определённым товаром в рамках отдельных заказов.',
 	'Screenshots'				=> 'СКРИНШОТЫ (Снимки экрана)',
 	"SAVE" => "СОХРАНИТЬ",
-	"Remote service unavailable, please try again later"	=> "Remote service unavailable, please try again later",
+	'Check Our'	=> 'Попробуйте наше',
+	'LIVE DEMO'	=> 'LIVE ДЕМО',
+	'Youstice: cURL is not installed, please install it.'	=> 'Юстис: cURL не установлен, пожалуйста, установите его.',
+	'Youstice: PDO is not installed, please install it.'	=> 'Юстис: PDO не установлен, пожалуйста, установите его.',
+	'Youstice: PECL finfo is not installed, please install it.'	=> 'Юстис: PECL finfo не установлен, пожалуйста, установите его.',
+	"Remote service unavailable, please try again later"	=> "Дистанционное обслуживание недоступно, пожалуйста, попробуйте позже",	
+	"Invalid email"	=> "Неверный адрес электронной почты",
+	"Email or order number not found" => "Адрес электронной почты или номер заказа не найдены",
 	
 	//orders page
-	"Order date"	=> "Order date",
-	"Total"	=> "Total",
+	"Report claims on"	=> "Предъявить претензию к",
+	"Your orders (%d)"	=> "Ваши заказы (%d)",
+	"Order date"	=> "Дата заказа",
+	"Total"	=> "Сума",
 	"_orderDateFormat"	=>	"j.n.Y G:i:s",
-	"paid"	=> "paid",
-	"unpaid"	=> "unpaid",
-	"delivered"	=> "delivered",
-	"undelivered"	=> "undelivered",
+	"paid"	=> "оплаченные",
+	"unpaid"	=> "неоплаченные",
+	"delivered"	=> "доставленные",
+	"undelivered"	=> "недоставленные",
 );

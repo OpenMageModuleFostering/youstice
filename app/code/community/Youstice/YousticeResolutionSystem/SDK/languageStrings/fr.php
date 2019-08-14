@@ -3,7 +3,7 @@
  * Local French translations
  *
  * @author    Youstice
- * @copyright (c) 2014, Youstice
+ * @copyright (c) 2015, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -31,22 +31,10 @@ return array(
 	"Waiting for retailer's response"			=> "Attendre la réponse du détaillant",
 
 	//admin
-	"Youstice" => "Youstice",
-	"Your online justice"	=> "Your online justice",
-	"We help customers and retailers resolve shopping issues quickly and effectively." => "We help customers and retailers resolve shopping issues quickly and effectively.",
-	"Youstice is a global online application for customers and retailers"	=> "Youstice is a global online application for customers and retailers",
-	"It allows quick and efficient communication between shops and customers"	=> "It allows quick and efficient communication between shops and customers",
-	"Complaints are resolved in just a few clicks."	=> "Complaints are resolved in just a few clicks.",
 	"Yes"	    => "Oui",
 	"No"	    => "Non",
-	"Products"	    => "Products",
-	"Services"	    => "Services",
-	"Settings"	    => "Settings",
-	"Api Key"	    => "Api Key",
-	"Use sandbox environment"   => "Use sandbox environment",
-	"This e-shop sells"	    => "This e-shop sells",
-	"Default language"		=> "Default language",
-	"Auto detection"		=> "Auto detection",
+	"Default language"		=> "Langue par défaut",
+	"Auto detection"		=> "Détection automatique",
 	"Are you sure you want to uninstall?"	=> "Vous êtes sûr de vouloir désinstaller",
 	"Settings were saved successfully."	=> "Vos paramètres ont été enregistrés  avec succès",
 	"Invalid API KEY"		=> "Clé d´API ne peut être acceptée/ Clé d´API non valable",
@@ -90,14 +78,23 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Il peut aussi signaler un problème relatif à un article d’une commande.',
 	'Screenshots'				=> 'COPIES D’ÉCRAN',
 	"SAVE" => "ENREGISTER",
-	"Remote service unavailable, please try again later"	=> "Remote service unavailable, please try again later",
+	'Check Our'	=> 'Consultez Notre',
+	'LIVE DEMO'	=> 'DÉMONSTRATION EN DIRECT',
+	'Youstice: cURL is not installed, please install it.'	=> 'Youstice: cURL n’est pas installé, s’il vous plaît, installez-le.',
+	'Youstice: PDO is not installed, please install it.'	=> 'Youstice: PDO n’est pas installé, s’il vous plaît, installez-le.',
+	'Youstice: PECL finfo is not installed, please install it.'	=> 'Youstice: PECL finfo n’est pas installé, s’il vous plaît, installez-le.',
+	"Remote service unavailable, please try again later"	=> "Service à distance indisponible, s’il vous plaît, réessayez plus tard",	
+	"Invalid email"	=> "E-mail invalide",
+	"Email or order number not found" => "E-mail ou numéro de commande non trouvée",
 	
 	//orders page
-	"Order date"	=> "Order date",
+	"Report claims on"	=> "Déposer une réclamation sur",
+	"Your orders (%d)"	=> "Vos commandes (%d)",
+	"Order date"	=> "Date de la commande",
 	"Total"	=> "Total",
 	"_orderDateFormat"	=>	"j.n.Y G:i:s",
-	"paid"	=> "paid",
-	"unpaid"	=> "unpaid",
-	"delivered"	=> "delivered",
-	"undelivered"	=> "undelivered",
+	"paid"	=> "Payé",
+	"unpaid"	=> "Non rémunéré",
+	"delivered"	=> "Livré",
+	"undelivered"	=> "Non livré",
 );

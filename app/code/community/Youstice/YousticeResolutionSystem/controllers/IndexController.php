@@ -45,7 +45,7 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 		$order_number = $this->getOrderNumber();
 
 		if (!$this->customer_id) {
-			echo json_encode(array('error' => 'Invalid email'));
+			echo json_encode(array('error' => $this->api->get()->t('Invalid email')));
 			exit;
 		}
 
@@ -60,7 +60,7 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 		}
 
 		//order number not found in customer's orders
-		echo json_encode(array('error' => 'Email or order number not found'));
+		echo json_encode(array('error' => $this->api->get()->t('Email or order number not found')));
 		exit;
 	}
 
@@ -94,6 +94,7 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 	}
 
 	public function getLogoWidgetAction() {
+		$this->api->get()->runWithoutUpdates();
 		echo $this->api->get()->getLogoWidgetHtml(Mage::getUrl('youstice/index/getReportClaimsPage'), true);
 	}
 
@@ -284,7 +285,7 @@ class Youstice_YousticeResolutionSystem_IndexController extends Mage_Core_Contro
 
 		//how much left to pay
 		if($order->getBaseTotalDue() == 0)
-			$shopOrder->setPaymentState(Youstice_ShopOrder::PAYED);
+			$shopOrder->setPaymentState(Youstice_ShopOrder::PAID);
 
 		if($order->hasShipments())
 			$shopOrder->setDeliveryState(Youstice_ShopOrder::DELIVERED);

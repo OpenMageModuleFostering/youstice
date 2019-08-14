@@ -3,7 +3,7 @@
  * Renders order detail (usually in popup form)
  *
  * @author    Youstice
- * @copyright (c) 2014, Youstice
+ * @copyright (c) 2015, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -50,7 +50,7 @@ class Youstice_Widgets_OrdersPage {
 				$orderDateFormated = Youstice_Helpers_HelperFunctions::sh(date($orderDateFormat, $orderDate));
 				
 				$totalLabel = $this->translator->t('Total');
-				$totalText = Youstice_Helpers_HelperFunctions::sh($order->getPrice()).' '.Youstice_Helpers_HelperFunctions::sh($order->getCurrency());
+				$totalText = Youstice_Helpers_HelperFunctions::sh(number_format($order->getPrice(), 2)).' '.Youstice_Helpers_HelperFunctions::sh($order->getCurrency());
 				
 				$output .= '<tr><td>'
 						. '<b>'.Youstice_Helpers_HelperFunctions::sh($order->getName()).'</b>'

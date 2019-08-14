@@ -3,7 +3,7 @@
  * Local Slovak translations
  *
  * @author    Youstice
- * @copyright (c) 2014, Youstice
+ * @copyright (c) 2015, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -31,18 +31,8 @@ return array(
 	"Waiting for retailer's response"			=> "Čakanie na odpoveď od obchodníka",
 
 	//admin
-	"Youstice" => "Youstice",
-	"Your online justice"	=> "Vaša online justícia",
-	"We help customers and retailers resolve shopping issues quickly and effectively." => "Pomáhame spotrebiteľom a predajcom rýchlo a efektívne riešiť problémy spojené s nakupovaním.",	"Youstice is a global online application for customers and retailers"	=> "Youstice je globálna online aplikácia pre spotrebiteľov a predajcov",	"It allows quick and efficient communication between shops and customers"	=> "Umožňuje rýchlu a efektívnu komunikáciu medzi obchodmi a kupujúcimi.",
-	"Complaints are resolved in just a few clicks."	=> "Sťažnosti je možné vyriešiť niekoľkými kliknutiami myšou.",
 	"Yes"	    => "Áno",
 	"No"	    => "Nie",
-	"Products"	    => "Produkty",
-	"Services"	    => "Služby",
-	"Settings"	    => "Nastavenia",
-	"Api Key"	    => "Api Kľúč",
-	"Use sandbox environment"   => "Používať testovacie prostredie",
-	"This e-shop sells"	    => "Tento e-shop predáva",
 	"Default language"		=> "Predvolený jazyk",
 	"Auto detection"		=> "Automatická detekcia",
 	"Are you sure you want to uninstall?"	=> "Naozaj si želáte odinštalovať?",
@@ -88,14 +78,24 @@ return array(
 	'It is also possible to report a problem with a specific item within an order.' => 'Je tiež možné nahlásiť problém ohľadom konkrétnej položky, ktorá je súčasťou objednávky.',
 	'Screenshots'				=> 'Screenshoty',
 	"SAVE" => "ULOŽIŤ",
-	"Remote service unavailable, please try again later"	=> "Remote service unavailable, please try again later",
+	'Check Our'	=> 'Pozrite si naše',
+	'LIVE DEMO'	=> 'DEMO',
+	'Youstice: cURL is not installed, please install it.'	=> 'Youstice: cURL nie je nainštalované, prosím nainštalujte ho.',
+	'Youstice: PDO is not installed, please install it.'	=> 'Youstice: PDO nie je nainštalované, prosím nainštalujte ho.',
+	'Youstice: PECL finfo is not installed, please install it.'	=> 'Youstice: PECL finfo nie je nainštalované, prosím nainštalujte ho.',
+	"Remote service unavailable, please try again later"	=> "Vzdialená služba je nedostupná, skúste to neskôr prosím",
+	
+	"Invalid email"	=> "Neplatný email",
+	"Email or order number not found" => "Email alebo číslo objednávky neboli nájdené",
 	
 	//orders page
-	"Order date"	=> "Order date",
-	"Total"	=> "Total",
+	"Report claims on"	=> "Reportuj sťažnosť na",
+	"Your orders (%d)"	=> "Vaše objednávky (%d)",
+	"Order date"	=> "Dátum objednávky",
+	"Total"	=> "Celkom",
 	"_orderDateFormat"	=>	"j.n.Y G:i:s",
-	"paid"	=> "paid",
-	"unpaid"	=> "unpaid",
-	"delivered"	=> "delivered",
-	"undelivered"	=> "undelivered",
+	"paid"	=> "zaplatené",
+	"unpaid"	=> "nezaplatené",
+	"delivered"	=> "doručené",
+	"undelivered"	=> "nedoručené",
 );

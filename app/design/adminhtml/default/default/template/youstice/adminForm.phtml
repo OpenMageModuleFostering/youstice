@@ -1,5 +1,20 @@
 <?php
 $api = Mage::getSingleton('Youstice_YousticeResolutionSystem_Helper_ApiSingleton')->get();
+
+//is properly installed?
+try {
+	$api->checkIsProperlyInstalledWithExceptions();
+} catch (Youstice_ApiException $e) {
+	exit('<ul class="messages"><li class="error-msg">'.$e->getMessage().'</li></ul>');
+	Mage::getSingleton('core/session')->addError($e->getMessage());
+}
+		
+if(!Mage::getStoreConfig('youstice/db_installed')) {
+	$api = Mage::getSingleton('Youstice_YousticeResolutionSystem_Helper_ApiSingleton')->get();
+	$api->install();
+	Mage::getModel('core/config')->saveConfig('youstice/db_installed', 1);
+}
+
 $apiKey = Mage::getStoreConfig('youstice/api_key');
 $useSandbox = Mage::getStoreConfig('youstice/use_sandbox');
 //$shopSells = Mage::getStoreConfig('youstice/shop_sells');
@@ -109,7 +124,7 @@ $reportClaimsLink = $this->getUrl('', array('_absolute' => true, '_secure' => tr
 		<p class="empty">&nbsp;</p>
         <p>
             <b><?= $api->t('Need some help?') ?></b><br />
-            <?= $api->t('Our support team is here for you') ?>: <a href="http://support.youstice.com/?utm_source=eshop&amp;utm_medium=cpc&amp;utm_content=magento_weblink&amp;utm_campaign=plugins" target="_blank">support.youstice.com</a>
+			<?= $api->t('Our support team is here for you') ?>: <a href="http://support.youstice.com/?utm_source=eshop&amp;utm_medium=cpc&amp;utm_content=magento_weblink&amp;utm_campaign=plugins" target="_blank">support.youstice.com</a>
         </p>
 	</div>
 

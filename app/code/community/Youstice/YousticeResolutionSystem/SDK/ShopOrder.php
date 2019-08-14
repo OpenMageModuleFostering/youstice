@@ -3,7 +3,7 @@
  * The shop order it self.
  *
  * @author    Youstice
- * @copyright (c) 2014, Youstice
+ * @copyright (c) 2015, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -11,8 +11,8 @@ class Youstice_ShopOrder extends Youstice_ShopItem {
 	
 	const NOT_DELIVERED = 1;
 	const DELIVERED = 2;
-	const NOT_PAYED = 1;
-	const PAYED = 2;
+	const NOT_PAID = 1;
+	const PAID = 2;
 
 	public static function create($description = array(), $name = '', $currency = 'EUR', $price = 0.0, $product_id = null,
 			$delivery_date = null, $order_date = null, $image = null, $other_info = '', $products = array())
@@ -70,7 +70,7 @@ class Youstice_ShopOrder extends Youstice_ShopItem {
 	}
 	
 	public function getDeliveryState() {
-		return isset($this->data['deliveryState']) ? $this->data['deliveryState'] : self::NOT_DELIVERED;
+		return $this->isDelivered() ? 'delivered' : 'undelivered';
 	}
 	
 	public function isDelivered() {
@@ -78,18 +78,18 @@ class Youstice_ShopOrder extends Youstice_ShopItem {
 	}
 	
 	public function setPaymentState($paymentState) {
-		if($paymentState == self::PAYED || $paymentState == self::NOT_PAYED)
+		if($paymentState == self::PAID || $paymentState == self::NOT_PAID)
 			$this->data['paymentState'] = $paymentState;
 		
 		return $this;
 	}
 	
 	public function getPaymentState() {
-		return isset($this->data['paymentState']) ? $this->data['paymentState'] : self::NOT_PAYED;
+		return $this->isPaid() ? 'paid' : 'unpaid';
 	}
 	
 	public function isPaid() {
-		return isset($this->data['paymentState']) && $this->data['paymentState'] == self::PAYED;
+		return isset($this->data['paymentState']) && $this->data['paymentState'] == self::PAID;
 	}
 
 }

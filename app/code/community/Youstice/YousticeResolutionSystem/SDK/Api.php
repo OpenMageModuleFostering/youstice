@@ -4,7 +4,7 @@
  * Main Youstice class.
  *
  * @author    Youstice
- * @copyright (c) 2014, Youstice
+ * @copyright (c) 2015, Youstice
  * @license   http://www.apache.org/licenses/LICENSE-2.0.html  Apache License, Version 2.0
  */
 
@@ -87,6 +87,15 @@ class Youstice_Api {
 	 */
 	protected $shop_software_version;
 
+	/*
+	 * Is true when curl, PDO and fileinfo are available
+	 */
+	protected $is_properly_installed = false;
+
+	const CURL_NOT_INSTALLED = 1;
+	const PDO_NOT_INSTALLED = 2;
+	const FINFO_NOT_INSTALLED = 3;
+
 	/**
 	 *
 	 * @param array $db_credentials associative array for PDO connection with must fields: driver, host, name, user, pass
@@ -148,11 +157,13 @@ class Youstice_Api {
 	 * @return YousticeApi
 	 */
 	public function runWithoutUpdates()
-	{		
+	{
 		$this->checkShopSells();
 
-		if ($this->session === null)
+		if (!$this->session)
 			$this->setSession(new Youstice_Providers_SessionProvider());
+
+		$this->is_properly_installed = $this->checkIsProperlyInstalled();
 
 		$this->remote = new Youstice_Remote($this->api_key, $this->use_sandbox, $this->language, $this->shop_sells, $this->shop_software_type, $this->shop_software_version);
 
@@ -184,6 +195,9 @@ class Youstice_Api {
 		if (!trim($this->api_key))
 			return "Invalid shop's api key";
 
+		if (!$this->is_properly_installed)
+			return 'Youstice plugin is not properly installed';
+
 		$widget = new Youstice_Widgets_ReportClaimsForm($this->language);
 
 		return $widget->toString();
@@ -192,6 +206,9 @@ class Youstice_Api {
 	public function getShowButtonsWidgetHtml()
 	{
 		if (!trim($this->api_key))
+			return '';
+
+		if (!$this->is_properly_installed)
 			return '';
 
 		$reports_count = count($this->local->getReportsByUser($this->user_id));
@@ -204,9 +221,12 @@ class Youstice_Api {
 	public function getOrdersPageWidgetHtml($webReportHref, $shopName, array $shopOrders)
 	{
 		if (!trim($this->api_key))
+			return 'No orders have been found';
+
+		if (!$this->is_properly_installed)
 			return '';
 
-		if(empty($shopOrders))
+		if (empty($shopOrders))
 			return '';
 
 		$widget = new Youstice_Widgets_OrdersPage($this->language, $webReportHref, $shopName, $shopOrders, $this);
@@ -224,13 +244,15 @@ class Youstice_Api {
 		if (!trim($this->api_key))
 			return '';
 
-		if($isOnOrderHistoryPage)
+		if (!$this->is_properly_installed)
+			return '';
+
+		if ($isOnOrderHistoryPage)
 			$claim_url .= (parse_url($claim_url, PHP_URL_QUERY) ? '&' : '?') . 'ordersPage';
 
 		try {
 			$html = $this->remote->getLogoWidgetData($this->local->getChangedReportStatusesCount(), $claim_url, $this->user_id !== null);
-		}
-		catch(Exception $e) {
+		} catch (Exception $e) {
 			return '';
 		}
 
@@ -245,6 +267,9 @@ class Youstice_Api {
 	public function getWebReportButtonHtml($href)
 	{
 		if (!trim($this->api_key))
+			return '';
+
+		if (!$this->is_properly_installed)
 			return '';
 
 		$report = $this->local->getWebReport($this->user_id);
@@ -275,6 +300,9 @@ class Youstice_Api {
 		if (!trim($this->api_key))
 			return '';
 
+		if (!$this->is_properly_installed)
+			return '';
+
 		$report = $this->local->getProductReport($product_id, $order_id);
 
 		//exists, just redirect
@@ -300,6 +328,9 @@ class Youstice_Api {
 	public function getOrderReportButtonHtml($href, $order_id)
 	{
 		if (!trim($this->api_key))
+			return '';
+
+		if (!$this->is_properly_installed)
 			return '';
 
 		$report = $this->local->getOrderReport($order_id);
@@ -328,6 +359,9 @@ class Youstice_Api {
 		if (!trim($this->api_key))
 			return '';
 
+		if (!$this->is_properly_installed)
+			return '';
+
 		$products = $order->getProducts();
 		$product_codes = array();
 
@@ -348,6 +382,9 @@ class Youstice_Api {
 	public function getOrderDetailHtml(Youstice_ShopOrder $order)
 	{
 		if (!trim($this->api_key))
+			return '';
+
+		if (!$this->is_properly_installed)
 			return '';
 
 		$products = $order->getProducts();
@@ -505,9 +542,13 @@ class Youstice_Api {
 	/**
 	 * Create necessary table
 	 * @return boolean success
+	 * @throws 
 	 */
 	public function install()
 	{
+		//raise exceptions
+		$this->checkIsProperlyInstalledWithExceptions();
+
 		return $this->local->install();
 	}
 
@@ -545,6 +586,9 @@ class Youstice_Api {
 	protected function canUpdate()
 	{
 		if (Youstice_Tools::strlen($this->api_key) == 0)
+			return false;
+
+		if (!$this->is_properly_installed)
 			return false;
 
 		$last_often_update = 0;
@@ -731,6 +775,34 @@ class Youstice_Api {
 	}
 
 	/**
+	 * Check if curl, PDO and fileinfo are available
+	 * @return boolean
+	 */
+	public function checkIsProperlyInstalled()
+	{
+		if ((!in_array(ini_get('allow_url_fopen'), array('On', 'on', '1')) && !function_exists('curl_exec')) || !extension_loaded('PDO') || !function_exists('finfo_open') || !$this->local)
+			return false;
+
+		return true;
+	}
+
+	/**
+	 * Check if curl, PDO and fileinfo are available
+	 * @throws Youstice_ApiException
+	 */
+	public function checkIsProperlyInstalledWithExceptions()
+	{
+		if (!in_array(ini_get('allow_url_fopen'), array('On', 'on', '1')) && !function_exists('curl_exec'))
+			throw new Youstice_ApiException($this->t('Youstice: cURL is not installed, please install it.'), self::CURL_NOT_INSTALLED);
+
+		if (!extension_loaded('PDO'))
+			throw new Youstice_ApiException($this->t('Youstice: PDO is not installed, please install it.'), self::PDO_NOT_INSTALLED);
+
+		if (!function_exists('finfo_open'))
+			throw new Youstice_ApiException($this->t('Youstice: PECL finfo is not installed, please install it.'), self::FINFO_NOT_INSTALLED);
+	}
+
+	/**
 	 * Set on which software is eshop running
 	 * @param string $shop_type "prestashop|magento|ownSoftware"
 	 * @param string $shop_version full version string
@@ -761,11 +833,14 @@ class Youstice_Api {
 
 }
 
-class Youstice_InvalidApiKeyException extends Exception {
+class Youstice_ApiException extends Exception {
+	
+}
 
+class Youstice_InvalidApiKeyException extends Exception {
+	
 }
 
 class Youstice_FailedRemoteConnectionException extends Exception {
-
+	
 }
-
